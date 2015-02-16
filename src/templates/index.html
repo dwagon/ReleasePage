@@ -1,0 +1,13 @@
+<HTML>
+<HEAD>
+   <TITLE>Release Details</TITLE>
+</HEAD>
+<BODY>
+<ul>
+{% for app in apps %}
+<li> <a href="/app/{{app}}">{{app}}</a>
+{% endfor %}
+</ul>
+</BODY>
+</HTML>
+

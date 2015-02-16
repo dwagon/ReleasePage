@@ -1,0 +1,13 @@
+<HTML>
+<HEAD>
+   <TITLE>{{app}} release details</TITLE>
+</HEAD>
+<BODY>
+<table>
+{% for env,release in details %}
+<tr><td>{{env}}</td><td>{{release}}</td></tr>
+{% endfor %}
+</table>
+</BODY>
+</HTML>
+
