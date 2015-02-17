@@ -1,13 +1,16 @@
-<HTML>
-<HEAD>
-   <TITLE>Release Details</TITLE>
-</HEAD>
-<BODY>
-<ul>
-{% for app in apps %}
-<li> <a href="/app/{{app}}">{{app}}</a>
-{% endfor %}
-</ul>
-</BODY>
-</HTML>
-
+{% extends "bootstrap/base.html" %}
+{% include "navbar.html" %}
+{% block title %}Release Details{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+    <table class="table table-hover table-striped">
+    {% for app in apps %}
+        <tr> <td> <a href="/app/{{app}}">{{app}}</a> </td> </tr>
+    {% endfor %}
+    </table>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+{% endblock %}

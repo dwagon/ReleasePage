@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 
 from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
 from details import getDetails, getAppList
+
 app = Flask(__name__)
+Bootstrap(app)
 
 
 ###############################################################################

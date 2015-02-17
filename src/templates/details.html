@@ -1,13 +1,22 @@
-<HTML>
-<HEAD>
-   <TITLE>{{app}} release details</TITLE>
-</HEAD>
-<BODY>
-<table>
-{% for env,release in details %}
-<tr><td>{{env}}</td><td>{{release}}</td></tr>
-{% endfor %}
-</table>
-</BODY>
-</HTML>
+{% extends "bootstrap/base.html" %}
+{% include "navbar.html" %}
+{% block title %}{{app}} release details{% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-10"><h2>{{app}} versions</h2></div>
+<div class="col-md-1"></div>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+    <table class="table table-hover table-striped">
+        {% for env,release,notes in details %}
+            <tr><td>{{env}}</td><td>{{release}}</td><td>{{notes}}</td></tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+{% endblock %}
 
