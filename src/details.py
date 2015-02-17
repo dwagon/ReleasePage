@@ -20,7 +20,7 @@ def getAppList():
     mods = importer()
     apps = []
     for i in mods:
-        apps.append(i.application)
+        apps.append(mods[i].application)
     return apps
 
 

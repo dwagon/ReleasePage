@@ -25,7 +25,7 @@ def help():
 @app.route("/app/<appname>")
 def appversion(appname):
     details = getDetails(appname)
-    return render_template('details.html', app=app, details=details)
+    return render_template('details.html', app=appname, details=details)
 
 
 ###############################################################################
