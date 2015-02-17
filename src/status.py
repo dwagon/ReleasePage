@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from flask import Flask, render_template
-from details import getDetails
+from details import getDetails, getAppList
 app = Flask(__name__)
 
 
@@ -13,12 +13,6 @@ def index():
 
 
 ###############################################################################
-def getAppList():
-    """ Get the list of apps we can return details on """
-    return ['soe']  # STUB
-
-
-###############################################################################
 @app.route("/app/<appname>")
 def appversion(appname):
     details = getDetails(appname)
@@ -27,6 +21,6 @@ def appversion(appname):
 
 ###############################################################################
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 # EOF
