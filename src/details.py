@@ -29,7 +29,7 @@ def getDetails(appname):
     mods = importer()
     for i in mods:
         if i == appname:
-            return mods[i].getRelease()
+            return mods[i].getDetails()
 
 
 ###############################################################################
