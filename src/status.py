@@ -16,6 +16,12 @@ def index():
 
 
 ###############################################################################
+@app.route("/help")
+def help():
+    return render_template('help.html')
+
+
+###############################################################################
 @app.route("/app/<appname>")
 def appversion(appname):
     details = getDetails(appname)
