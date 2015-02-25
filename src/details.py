@@ -17,7 +17,13 @@ def importer():
 
 ###############################################################################
 def getEnvList():
-    return ['prod', 'preprod']
+    mods = importer()
+    envs = set()
+    for i in mods:
+        tmp = mods[i].getDetails()
+        for e in tmp:
+            envs.add(e['env'])
+    return list(envs)
 
 
 ###############################################################################
