@@ -16,6 +16,11 @@ def importer():
 
 
 ###############################################################################
+def getEnvList():
+    return ['prod', 'preprod']
+
+
+###############################################################################
 def getAppList():
     mods = importer()
     apps = []
@@ -25,7 +30,20 @@ def getAppList():
 
 
 ###############################################################################
-def getDetails(appname):
+def getEnvDetails(envname):
+    mods = importer()
+    ans = []
+    for i in mods:
+        tmp = mods[i].getDetails(env=envname)
+        for e in tmp:
+            if e['env'] == envname:
+                e['appname'] = i
+                ans.append(e)
+    return ans
+
+
+###############################################################################
+def getAppDetails(appname, env=None):
     mods = importer()
     for i in mods:
         if i == appname:

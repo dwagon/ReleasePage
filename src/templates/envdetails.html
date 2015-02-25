@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+{% include "navbar.html" %}
+{% block title %}{{env}} details{% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-10"><h2>{{env}} releases</h2></div>
+<div class="col-md-1"></div>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+    <table class="table table-hover table-striped">
+        {% for d in details %}
+            <tr>
+                {% if d.url %}
+                    <td><a href="{{d.url}}">{{d.appname}}</a></td>
+                {% else %}
+                    <td>{{d.appname}}</td>
+                {% endif %}
+                <td>{{d.release}}</td>
+                <td>{{d.notes}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+{% endblock %}
+

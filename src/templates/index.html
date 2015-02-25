@@ -4,12 +4,23 @@
 {% block content %}
 <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-10">
-    <table class="table table-hover table-striped">
-    {% for app in apps %}
-        <tr> <td> <a href="/app/{{app}}">{{app}}</a> </td> </tr>
+    <div class="col-md-2"><h4>By Environment</h4></div>
+    <div class="col-md-8">
+
+    {% for env in envs %}
+        <a class="btn btn-default" href="/env/{{env}}" role="button">{{env}}</a>
     {% endfor %}
-    </table>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2"><h4>By Application</h4></div>
+    <div class="col-md-8">
+    {% for app in apps %}
+        <a class="btn btn-default" href="/app/{{app}}" role="button">{{app}}</a>
+    {% endfor %}
     </div>
     <div class="col-md-1"></div>
 </div>
