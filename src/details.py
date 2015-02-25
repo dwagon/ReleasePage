@@ -11,7 +11,7 @@ def importer():
     for pyf in pyfiles:
         name = pyf.replace('.py', '')
         mod = imp.load_source(name, os.path.join('samplers', pyf))
-        mods[name] = mod
+        mods[mod.application] = mod
     return mods
 
 
