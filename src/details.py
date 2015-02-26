@@ -2,9 +2,13 @@
 
 import imp
 import os
+import memoize
+
+mycache = {}
 
 
 ###############################################################################
+@memoize.memoize_with_expiry(mycache, 60)
 def importer():
     mods = {}
     pyfiles = [f for f in os.listdir('samplers') if f.endswith('.py')]
@@ -16,6 +20,7 @@ def importer():
 
 
 ###############################################################################
+@memoize.memoize_with_expiry(mycache, 60)
 def getEnvList():
     mods = importer()
     envs = set()
@@ -27,6 +32,7 @@ def getEnvList():
 
 
 ###############################################################################
+@memoize.memoize_with_expiry(mycache, 60)
 def getAppList():
     mods = importer()
     apps = []
@@ -36,6 +42,7 @@ def getAppList():
 
 
 ###############################################################################
+@memoize.memoize_with_expiry(mycache, 60)
 def getEnvDetails(envname):
     mods = importer()
     ans = []
@@ -49,15 +56,12 @@ def getEnvDetails(envname):
 
 
 ###############################################################################
+@memoize.memoize_with_expiry(mycache, 60)
 def getAppDetails(appname, env=None):
     mods = importer()
     for i in mods:
         if i == appname:
             return mods[i].getDetails()
 
-
-###############################################################################
-if __name__ == "__main__":
-    importer()
 
 # EOF
